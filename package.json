@@ -1,6 +1,6 @@
 {
   "name": "@heptacode/military-letter",
-  "version": "0.0.5",
+  "version": "0.1.1",
   "description": "Unofficial library to send letters to ROK Armed Forces Training Center",
   "keywords": [
     "airforce",

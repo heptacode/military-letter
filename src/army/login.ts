@@ -15,8 +15,8 @@ export async function login(): Promise<void> {
       state: 'email-login',
       autoLoginYn: 'N',
       findPwType: 'pwFind',
-      userId: process.env.USER_ID,
-      userPwd: process.env.USER_PW,
+      userId: process.env.THECAMP_ID,
+      userPwd: process.env.THECAMP_PW,
     })
   );
 
