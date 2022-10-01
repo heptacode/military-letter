@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "incremental": true,
+    "isolatedModules": true,
+    "module": "CommonJS"
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
