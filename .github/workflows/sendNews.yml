@@ -23,8 +23,10 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'false'
         run: exit 0
 
-      - run: cd examples
-
       - run: yarn
+
+      - run: yarn build
+
+      - run: cd examples
 
       - run: yarn send-news
