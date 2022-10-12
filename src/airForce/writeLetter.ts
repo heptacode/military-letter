@@ -1,8 +1,8 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config';
-import { LetterDetails, Trainee } from '../typings';
-import { getId } from './getId';
+import { config } from '../config.js';
+import { LetterDetails, Trainee } from '../typings.js';
+import { getId } from './getId.js';
 
 /**
  * 편지 보내기
@@ -20,8 +20,7 @@ export async function writeLetter(trainee: Trainee, letterDetails: LetterDetails
   }
 
   await postRequest<void>(
-    config.baseUrl.airForce,
-    '/emailPicSaveEmail.action',
+    `${config.baseUrl.airForce}/emailPicSaveEmail.action`,
     stringify({
       siteId: 'last2',
       command2: 'writeEmail',

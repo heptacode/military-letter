@@ -1,7 +1,7 @@
 import { getRequest } from '@heptacode/http-request';
 import { parse } from 'node-html-parser';
-import { config } from '../config';
-import { Trainee } from '../typings';
+import { config } from '../config.js';
+import { Trainee } from '../typings.js';
 
 /**
  * 육군 훈련병 등록 순서 가져오기
@@ -10,8 +10,9 @@ import { Trainee } from '../typings';
  */
 export async function getRegOrder(trainee: Trainee): Promise<string> {
   const { data: traineeRegListResponse } = await getRequest<any>(
-    config.baseUrl.army,
-    '/missTrainee/viewMissTraineeRegList.do'
+    `${config.baseUrl.army}/missSoldier/viewMissSoldierRegList.do`,
+    undefined,
+    config.httpRequestConfig
   );
   const wrappers = parse(traineeRegListResponse).querySelectorAll('div.profile-info-area');
   const wrapper = wrappers.find(wrapper => wrapper.rawText.trim().includes(trainee.name))!;

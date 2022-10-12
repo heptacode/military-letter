@@ -1,6 +1,6 @@
 import { getRequest } from '@heptacode/http-request';
-import { config } from '../config';
-import { NewsPayload } from '../typings';
+import { config } from '../config.js';
+import { NewsPayload } from '../typings.js';
 
 /**
  * 뉴스 가져오기
@@ -13,7 +13,7 @@ export async function getNews(): Promise<NewsPayload[]> {
     promises.push({
       category: category,
       news: (
-        await getRequest('https://news.daum.net/api', '/harmonydic/contents/news.json', {
+        await getRequest('https://news.daum.net/api/harmonydic/contents/news.json', {
           category,
           pageSize: config.pageSize,
         })

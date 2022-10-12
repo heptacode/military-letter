@@ -1,7 +1,8 @@
-import * as AirForce from './airForce';
-import * as Army from './army';
-import { config } from './config';
-import { Option, Trainee } from './typings';
+import * as AirForce from './airForce/index.js';
+import * as Army from './army/index.js';
+import { config } from './config.js';
+import { Option, Trainee } from './typings.js';
+import 'dotenv/config';
 
 const airForce = {
   getId: AirForce.getId,
@@ -36,5 +37,5 @@ export function useMilitaryLetter(trainees: Trainee[], options?: Option) {
   return { airForce, army };
 }
 
-export * from './typings';
+export * from './typings.js';
 export * from './utils';

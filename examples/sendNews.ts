@@ -7,25 +7,8 @@ import {
   TraineeType,
   useMilitaryLetter,
 } from '@heptacode/military-letter';
+import { trainees } from './trainees.js';
 
-const trainees: Trainee[] = [
-  {
-    name: '김육군',
-    birthDate: '2000-01-01',
-    enterDate: '2022-01-01',
-    startDate: '2022-01-01',
-    endDate: '2022-02-01',
-    exclude: true,
-  },
-  {
-    name: '김공군',
-    type: TraineeType.AIR_FORCE,
-    birthDate: '2000-01-01',
-    enterDate: '2022-01-01',
-    startDate: '2022-01-01',
-    endDate: '2022-02-01',
-  },
-];
 const { airForce, army } = useMilitaryLetter(trainees);
 
 async function composeNews(trainee: Trainee, newsList: NewsPayload[]) {
@@ -46,6 +29,7 @@ async function composeNews(trainee: Trainee, newsList: NewsPayload[]) {
     case TraineeType.ARMY:
     default:
       // 더캠프 로그인
+
       await army.login();
 
       // 보고싶은 군인 추가
@@ -83,8 +67,8 @@ export async function sendNewsToMany(trainees: Trainee[]) {
   const newsList: NewsPayload[] = await getNews();
 
   for (const trainee of getTargetTrainees(trainees)) {
-    composeNews(trainee, newsList);
+    await composeNews(trainee, newsList);
   }
 }
 
-sendNews(trainees[0]);
+sendNewsToMany(trainees);

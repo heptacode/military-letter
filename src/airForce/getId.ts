@@ -1,8 +1,8 @@
 import { getRequest } from '@heptacode/http-request';
 import dayjs from 'dayjs';
 import { parse } from 'node-html-parser';
-import { config } from '../config';
-import { Trainee } from '../typings';
+import { config } from '../config.js';
+import { Trainee } from '../typings.js';
 
 /**
  * 공군 훈련병 코드 조회
@@ -11,13 +11,13 @@ import { Trainee } from '../typings';
  */
 export async function getId(trainee: Trainee): Promise<string> {
   const { data } = await getRequest<any>(
-    config.baseUrl.airForce,
-    '/emailPicViewSameMembers.action',
+    `${config.baseUrl.airForce}/emailPicViewSameMembers.action`,
     {
       siteId: 'last2',
       searchName: encodeURI(trainee.name),
       searchBirth: dayjs(trainee.birthDate).format('YYYYMMDD'),
-    }
+    },
+    config.httpRequestConfig
   );
   const wrapper = parse(data).querySelector('input[type=button].choice')!;
   return wrapper.attrs.onclick.match(/\d+/)![0];

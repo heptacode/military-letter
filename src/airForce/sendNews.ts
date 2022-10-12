@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { NewsPayload, Trainee } from '../typings';
-import { writeLetter } from './writeLetter';
+import { NewsPayload, Trainee } from '../typings.js';
+import { writeLetter } from './writeLetter.js';
 
 /**
  * 공군 훈련병에게 뉴스 보내기
@@ -11,7 +11,9 @@ import { writeLetter } from './writeLetter';
 export async function sendNews(trainee: Trainee, newsItem: NewsPayload): Promise<void> {
   let content = ``;
   for (const news of newsItem.news) {
-    content += `# ${news.title}\n${news.summary.slice(0, news.summary.indexOf('다.') + 1)}\n\n`;
+    content += `# ${news.title}\n${
+      news.summary ? news.summary.slice(0, news.summary.indexOf('다.') + 1) : ''
+    }\n\n`;
   }
 
   await writeLetter(trainee, {

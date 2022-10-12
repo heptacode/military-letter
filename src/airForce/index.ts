@@ -1,3 +1,3 @@
-export * from './getId';
-export * from './sendNews';
-export * from './writeLetter';
+export * from './getId.js';
+export * from './sendNews.js';
+export * from './writeLetter.js';

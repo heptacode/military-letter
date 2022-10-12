@@ -1,10 +1,10 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config';
-import { Trainee, TraineeUnit } from '../typings';
-import { getDateWithoutHyphens } from '../utils/dateConverter';
-import { log } from '../utils/logger';
-import { getRegOrder } from './getRegOrder';
+import { config } from '../config.js';
+import { Trainee, TraineeUnit } from '../typings.js';
+import { getDateWithoutHyphens } from '../utils/dateConverter.js';
+import { log } from '../utils/logger.js';
+import { getRegOrder } from './getRegOrder.js';
 
 /**
  * 육군 더캠프 카페 가입 확인
@@ -13,8 +13,7 @@ import { getRegOrder } from './getRegOrder';
  */
 export async function checkCafe(trainee: Trainee): Promise<boolean> {
   const { data: cafeResult } = await postRequest<any>(
-    config.baseUrl.army,
-    '/main/cafeCreateCheckA.do',
+    `${config.baseUrl.army}/main/cafeCreateCheckA.do`,
     stringify({
       regOrder: await getRegOrder(trainee),
       name: trainee.name,

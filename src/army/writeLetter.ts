@@ -1,9 +1,9 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config';
-import { LetterDetails, Trainee } from '../typings';
-import { getId } from './getId';
-import { getUnitId } from './getUnitId';
+import { config } from '../config.js';
+import { LetterDetails, Trainee } from '../typings.js';
+import { getId } from './getId.js';
+import { getUnitId } from './getUnitId.js';
 
 /**
  * 육군 훈련병에게 편지 보내기
@@ -22,8 +22,7 @@ export async function writeLetter(trainee: Trainee, letterDetails: LetterDetails
   }
 
   await postRequest<void>(
-    config.baseUrl.army,
-    '/consolLetter/insertConsolLetterA.do',
+    `${config.baseUrl.army}/consolLetter/insertConsolLetterA.do`,
     stringify({
       trainUnitEduSeq: trainee.unitId ?? config.trainees[traineeIdx].unitId,
       traineeMgrSeq: trainee.id ?? config.trainees[traineeIdx].id,

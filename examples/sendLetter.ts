@@ -1,23 +1,6 @@
 import { LetterDetails, Trainee, TraineeType, useMilitaryLetter } from '@heptacode/military-letter';
+import { trainees } from './trainees.js';
 
-const trainees: Trainee[] = [
-  {
-    name: '김육군',
-    birthDate: '2000-01-01',
-    enterDate: '2022-01-01',
-    startDate: '2022-01-01',
-    endDate: '2022-02-01',
-    exclude: true,
-  },
-  {
-    name: '김공군',
-    type: TraineeType.AIR_FORCE,
-    birthDate: '2000-01-01',
-    enterDate: '2022-01-01',
-    startDate: '2022-01-01',
-    endDate: '2022-02-01',
-  },
-];
 const { airForce, army } = useMilitaryLetter(trainees);
 
 async function compose(trainee: Trainee, letterDetails: LetterDetails) {
@@ -62,5 +45,3 @@ export async function sendLetter(trainee: Trainee) {
     content: '본문',
   });
 }
-
-sendLetter(trainees[0]);

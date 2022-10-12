@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { Trainee } from '../typings';
-import { log } from './logger';
+import { Trainee } from '../typings.js';
+import { log } from './logger.js';
 
 export function getTargetTrainees(trainees: Trainee[]) {
   return trainees.filter((trainee: Trainee) => {

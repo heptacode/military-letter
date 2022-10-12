@@ -1,8 +1,8 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config';
-import { Trainee, TraineeUnit } from '../typings';
-import { getDateWithHyphens } from '../utils/dateConverter';
+import { config } from '../config.js';
+import { Trainee, TraineeUnit } from '../typings.js';
+import { getDateWithHyphens } from '../utils/dateConverter.js';
 
 /**
  * 육군 훈련병 추가하기
@@ -11,8 +11,7 @@ import { getDateWithHyphens } from '../utils/dateConverter';
  */
 export async function addTrainee(trainee: Trainee): Promise<boolean> {
   const response = await postRequest<any>(
-    config.baseUrl.army,
-    '/missTrainee/insertDirectMissTraineeA.do',
+    `${config.baseUrl.army}/missSoldier/insertDirectMissSoldierA.do`,
     stringify({
       iuid: config.iuid,
       name: trainee.name,

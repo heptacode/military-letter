@@ -1,5 +1,5 @@
 import { Agent } from 'https';
-import { Config, Option } from './typings';
+import { Config, Option } from './typings.js';
 
 export const options: Option = {
   airForceLetterPassword: 'P@$$W0RD',

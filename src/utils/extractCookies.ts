@@ -1,10 +1,10 @@
-import { Cookie } from '../typings';
+import { Cookie } from '../typings.js';
 
 /**
  * Cookie 추출
  */
 export function extractCookies(cookies: string[]): Cookie {
-  if (!cookies.length) {
+  if (!cookies?.length) {
     throw new Error('Invalid Cookie');
   }
 
