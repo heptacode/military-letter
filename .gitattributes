@@ -1,0 +1,3 @@
+.yarn/releases/* linguist-generated
+.pnp* linguist-generated
+yarn.lock linguist-generated

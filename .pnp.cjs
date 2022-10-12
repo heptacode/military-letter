@@ -1208,7 +1208,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/@jest-schemas-npm-29.0.0-5d6c90262d-9.zip/node_modules/@jest/schemas/",\
         "packageDependencies": [\
           ["@jest/schemas", "npm:29.0.0"],\
-          ["@sinclair/typebox", "npm:0.24.44"]\
+          ["@sinclair/typebox", "npm:0.24.46"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1452,10 +1452,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@sinclair/typebox", [\
-      ["npm:0.24.44", {\
-        "packageLocation": "../.yarn/berry/cache/@sinclair-typebox-npm-0.24.44-38506ddef6-9.zip/node_modules/@sinclair/typebox/",\
+      ["npm:0.24.46", {\
+        "packageLocation": "../.yarn/berry/cache/@sinclair-typebox-npm-0.24.46-d630eef884-9.zip/node_modules/@sinclair/typebox/",\
         "packageDependencies": [\
-          ["@sinclair/typebox", "npm:0.24.44"]\
+          ["@sinclair/typebox", "npm:0.24.46"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2461,7 +2461,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["browserslist", "npm:4.21.4"],\
           ["caniuse-lite", "npm:1.0.30001418"],\
-          ["electron-to-chromium", "npm:1.4.276"],\
+          ["electron-to-chromium", "npm:1.4.279"],\
           ["node-releases", "npm:2.0.6"],\
           ["update-browserslist-db", "virtual:7d64a96afc8cf9b31b95951ccc2f47931d0cf97faa526fd0d20448bf2c73ddf9f5ef9e5cd28839ae8b5791451df45079a407b3f4978367b4210748169f5848f6#npm:1.0.10"]\
         ],\
@@ -3142,10 +3142,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["electron-to-chromium", [\
-      ["npm:1.4.276", {\
-        "packageLocation": "../.yarn/berry/cache/electron-to-chromium-npm-1.4.276-73b9389125-9.zip/node_modules/electron-to-chromium/",\
+      ["npm:1.4.279", {\
+        "packageLocation": "../.yarn/berry/cache/electron-to-chromium-npm-1.4.279-88e78349f2-9.zip/node_modules/electron-to-chromium/",\
         "packageDependencies": [\
-          ["electron-to-chromium", "npm:1.4.276"]\
+          ["electron-to-chromium", "npm:1.4.279"]\
         ],\
         "linkType": "HARD"\
       }]\

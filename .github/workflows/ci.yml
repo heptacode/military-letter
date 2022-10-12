@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/cache@v3
+        with:
+          path: '**/.eslintcache'
+          key: lint-${{ hashFiles('**/.eslintcache') }}
+          restore-keys: lint-
+
+      - run: yarn
+
+      - run: yarn lint
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: actions/cache@v3
+        with:
+          path: '**/*.tsbuildinfo'
+          key: typecheck-${{ hashFiles('**/*.tsbuildinfo') }}
+          restore-keys: typecheck-
+
+      - run: yarn
+
+      - run: yarn typecheck

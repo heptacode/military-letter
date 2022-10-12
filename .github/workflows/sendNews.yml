@@ -1,0 +1,30 @@
+name: send-news
+
+on:
+  schedule:
+    - cron: '0 12 * * *' #“At 12:00 everyday”
+
+jobs:
+  send-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Check if file exists
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: 'examples/trainees.ts'
+
+      - name: Check result
+        if: steps.check_files.outputs.files_exists == 'false'
+        run: exit 0
+
+      - run: cd examples
+
+      - run: yarn
+
+      - run: yarn send-news

@@ -947,9 +947,9 @@ __metadata:
   linkType: hard
 
 "@sinclair/typebox@npm:^0.24.1":
-  version: 0.24.44
-  resolution: "@sinclair/typebox@npm:0.24.44"
-  checksum: f37b9d28bfaf7cfae27392ab6ca216436ed717e36652bb7716cb5072a434e02d164bf2c7f1a6a725e1440214d1269a5059ef6471dc10453200ed03aae8daac2b
+  version: 0.24.46
+  resolution: "@sinclair/typebox@npm:0.24.46"
+  checksum: 88b0e609479d89a065bff9df3db97e07672b001408f9461097c54a19fc94c1e4f208a42aa2103b73912640223511552084da960adbfe61268cc49582157dfccf
   languageName: node
   linkType: hard
 
@@ -2281,9 +2281,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.251":
-  version: 1.4.276
-  resolution: "electron-to-chromium@npm:1.4.276"
-  checksum: 567ce109cd89594b8df35efc9986b7997b5c6aa50d44b1604dc34f039652e652215122daa9e9f49d18fcf071efabbe03048340e45d4a67aa649427551142071d
+  version: 1.4.279
+  resolution: "electron-to-chromium@npm:1.4.279"
+  checksum: 4bc3eba8a3c0cfaa475b43e83a6e09211009638ac8cd6858dc0421a182a8b32f55e1faed6e466218e9f292067e1670814f35b0300441f335dc5a0098b682783a
   languageName: node
   linkType: hard
 
