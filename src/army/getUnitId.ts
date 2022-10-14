@@ -1,6 +1,6 @@
 import { getRequest } from '@heptacode/http-request';
 import { parse } from 'node-html-parser';
-import { config } from '../config.js';
+import { config, paths } from '../config.js';
 import { Trainee } from '../typings.js';
 
 /**
@@ -10,7 +10,7 @@ import { Trainee } from '../typings.js';
  */
 export async function getUnitId(trainee: Trainee): Promise<string> {
   const { data: trainUnitEduSeqResponse } = await getRequest<any>(
-    `${config.baseUrl.army}/eduUnitCafe/viewEduUnitCafeMain.do`,
+    paths.army.getUnitId,
     undefined,
     config.httpRequestConfig
   );

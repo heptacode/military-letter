@@ -1,6 +1,6 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config.js';
+import { config, paths } from '../config.js';
 import { extractCookies } from '../utils/extractCookies.js';
 
 /**
@@ -13,7 +13,7 @@ export async function login(): Promise<void> {
   }
 
   const { headers, data } = await postRequest<any>(
-    `${config.baseUrl.army}/login/loginA.do`,
+    paths.army.login,
     stringify({
       state: 'email-login',
       autoLoginYn: 'N',

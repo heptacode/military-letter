@@ -1,16 +1,7 @@
 import { build as esbuild } from 'esbuild';
 import { execa } from 'execa';
-import { readFile, rm } from 'node:fs/promises';
-import path from 'node:path';
-
-const pkgRaw = await readFile(path.join(process.cwd(), 'package.json'), 'utf8');
-const { dependencies = {}, devDependencies = {} } = JSON.parse(pkgRaw);
-
-const external = [...Object.keys(dependencies), ...Object.keys(devDependencies)];
-
-export async function cleanDir(dir) {
-  return await rm(path.join(process.cwd(), dir), { force: true, recursive: true });
-}
+import { cleanDir } from './utils/cleanDir.mjs';
+import { external } from './utils/getExternals.mjs';
 
 export async function execute(options = {}, outfile = '') {
   try {
@@ -39,9 +30,9 @@ export async function execute(options = {}, outfile = '') {
   }
 }
 
-export async function build(options = {}, outDir = 'dist') {
+export async function build(options = {}, outdir = 'dist') {
   try {
-    await cleanDir(outDir);
+    await cleanDir(outdir);
     const { failed: isTypecheckFailed, stdout: typecheckStdout } = await execa('yarn', ['typecheck']);
     if (isTypecheckFailed) {
       throw new Error(typecheckStdout);

@@ -1,6 +1,6 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config.js';
+import { config, paths } from '../config.js';
 import { Trainee, TraineeUnit } from '../typings.js';
 
 /**
@@ -11,12 +11,12 @@ import { Trainee, TraineeUnit } from '../typings.js';
 export async function getId(trainee: Trainee) {
   return (
     await postRequest<any>(
-      `${config.baseUrl.army}/consolLetter/viewConsolLetterMain.do`,
+      paths.army.getId,
       stringify({
         trainUnitEduSeq: trainee.unitId,
         trainUnitCd: trainee.unit
           ? TraineeUnit[trainee.unit as unknown as keyof typeof TraineeUnit]
-          : '20020191700', // default: 육군훈련소
+          : TraineeUnit['육군훈련소'],
       }),
       config.httpRequestConfig
     )

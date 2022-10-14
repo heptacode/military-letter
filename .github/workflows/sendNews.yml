@@ -2,7 +2,8 @@ name: send-news
 
 on:
   schedule:
-    - cron: '0 12 * * *' #“At 12:00 everyday”
+    - cron: '0 3 * * *' # At KST 12:00 (UTC 03:00) everyday
+  workflow_dispatch:
 
 jobs:
   send-news:
@@ -27,6 +28,11 @@ jobs:
 
       - run: yarn build
 
-      - run: cd examples
+      - working-directory: examples
+        run: ../.scripts/prepareEnvs.sh
+        env:
+          THECAMP_ID: ${{ secrets.THECAMP_ID }}
+          THECAMP_PW: ${{ secrets.THECAMP_PW }}
 
-      - run: yarn send-news
+      - working-directory: examples
+        run: yarn send-news

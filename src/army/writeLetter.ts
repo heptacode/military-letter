@@ -1,6 +1,6 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config.js';
+import { config, paths } from '../config.js';
 import { LetterDetails, Trainee } from '../typings.js';
 import { getId } from './getId.js';
 import { getUnitId } from './getUnitId.js';
@@ -22,7 +22,7 @@ export async function writeLetter(trainee: Trainee, letterDetails: LetterDetails
   }
 
   await postRequest<void>(
-    `${config.baseUrl.army}/consolLetter/insertConsolLetterA.do`,
+    paths.army.writeLetter,
     stringify({
       trainUnitEduSeq: trainee.unitId ?? config.trainees[traineeIdx].unitId,
       traineeMgrSeq: trainee.id ?? config.trainees[traineeIdx].id,

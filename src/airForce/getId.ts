@@ -1,7 +1,7 @@
 import { getRequest } from '@heptacode/http-request';
 import dayjs from 'dayjs';
 import { parse } from 'node-html-parser';
-import { config } from '../config.js';
+import { config, paths } from '../config.js';
 import { Trainee } from '../typings.js';
 
 /**
@@ -11,7 +11,7 @@ import { Trainee } from '../typings.js';
  */
 export async function getId(trainee: Trainee): Promise<string> {
   const { data } = await getRequest<any>(
-    `${config.baseUrl.airForce}/emailPicViewSameMembers.action`,
+    paths.airForce.getId,
     {
       siteId: 'last2',
       searchName: encodeURI(trainee.name),

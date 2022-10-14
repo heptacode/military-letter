@@ -1,7 +1,7 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config.js';
-import { Trainee, TraineeUnit } from '../typings.js';
+import { config, paths } from '../config.js';
+import { Trainee, TraineeGroup, TraineeRelationship, TraineeUnit } from '../typings.js';
 import { getDateWithoutHyphens } from '../utils/dateConverter.js';
 import { log } from '../utils/logger.js';
 import { getRegOrder } from './getRegOrder.js';
@@ -13,7 +13,7 @@ import { getRegOrder } from './getRegOrder.js';
  */
 export async function checkCafe(trainee: Trainee): Promise<boolean> {
   const { data: cafeResult } = await postRequest<any>(
-    `${config.baseUrl.army}/main/cafeCreateCheckA.do`,
+    paths.army.checkCafe,
     stringify({
       regOrder: await getRegOrder(trainee),
       name: trainee.name,
@@ -21,10 +21,10 @@ export async function checkCafe(trainee: Trainee): Promise<boolean> {
       enterDate: getDateWithoutHyphens(trainee.enterDate),
       trainUnitCd: trainee.unit
         ? TraineeUnit[trainee.unit as unknown as keyof typeof TraineeUnit]
-        : '20020191700', // default: 육군훈련소
-      grpCd: '0000010001', // 육군
+        : TraineeUnit['육군훈련소'],
+      grpCd: TraineeGroup['육군'],
       trainUnitTypeCd: '0000140001', // ??
-      traineeRelationshipCd: '0000420006', // 친구/지인
+      traineeRelationshipCd: TraineeRelationship['친구/지인'],
     }),
     config.httpRequestConfig
   );

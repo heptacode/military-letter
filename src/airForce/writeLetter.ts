@@ -1,6 +1,6 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
-import { config } from '../config.js';
+import { config, paths } from '../config.js';
 import { LetterDetails, Trainee } from '../typings.js';
 import { getId } from './getId.js';
 
@@ -20,7 +20,7 @@ export async function writeLetter(trainee: Trainee, letterDetails: LetterDetails
   }
 
   await postRequest<void>(
-    `${config.baseUrl.airForce}/emailPicSaveEmail.action`,
+    paths.airForce.writeLetter,
     stringify({
       siteId: 'last2',
       command2: 'writeEmail',

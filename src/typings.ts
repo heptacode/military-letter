@@ -3,6 +3,14 @@ export enum TraineeType {
   AIR_FORCE = '공군',
 }
 
+export enum TraineeGroup {
+  '육군' = '0000010001',
+}
+
+export enum TraineeClass {
+  '예비군인/훈련병' = '0000490001',
+}
+
 export enum TraineeUnit {
   '육군훈련소' = '20020191700',
   '육군3사관학교' = '20020920000',
@@ -37,6 +45,10 @@ export enum TraineeUnit {
   '55사단' = '20120180200',
 }
 
+export enum TraineeRelationship {
+  '친구/지인' = '0000420006',
+}
+
 export interface Trainee {
   name: string;
   type?: TraineeType;
@@ -64,6 +76,23 @@ export interface Config extends Option {
   iuid: string;
   httpRequestConfig: any;
   trainees: Trainee[];
+}
+
+export interface APIPath {
+  airForce: {
+    getId: string;
+    writeLetter: string;
+  };
+  army: {
+    addTrainee: string;
+    checkCafe: string;
+    deleteTrainee: string;
+    getId: string;
+    getRegOrder: string;
+    getUnitId: string;
+    login: string;
+    writeLetter: string;
+  };
 }
 
 export interface Cookie {
@@ -100,4 +129,9 @@ export interface LetterDetails {
   author: string;
   title: string;
   content: string;
+}
+
+export interface TheCampResponse {
+  resultCd: string;
+  resultMsg: string;
 }
