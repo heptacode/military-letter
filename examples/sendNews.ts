@@ -7,6 +7,7 @@ import {
   TraineeType,
   useMilitaryLetter,
 } from '@heptacode/military-letter';
+import 'dotenv/config';
 import { trainees } from './trainees.js';
 
 const { airForce, army } = useMilitaryLetter(trainees);
@@ -29,8 +30,10 @@ async function composeNews(trainee: Trainee, newsList: NewsPayload[]) {
     case TraineeType.ARMY:
     default:
       // 더캠프 로그인
-
-      await army.login();
+      await army.login({
+        id: process.env.THECAMP_ID!,
+        password: process.env.THECAMP_PW!,
+      });
 
       // 보고싶은 군인 추가
       await army.addTrainee(trainee);

@@ -1,6 +1,8 @@
 import { postRequest } from '@heptacode/http-request';
+import 'dotenv/config';
 import { stringify } from 'qs';
 import { paths } from '../config.js';
+import { login } from './login.js';
 
 async function loginRequest(userId?: string, userPwd?: string) {
   return await postRequest<any>(
@@ -34,6 +36,13 @@ describe('login', () => {
     it('is result code 9000', async () => {
       const response = await loginRequest('test@example.com', undefined);
       expect(response.data.resultCd).toEqual('9000');
+    });
+  });
+
+  it('is feature working', async () => {
+    await login({
+      id: process.env.THECAMP_ID!,
+      password: process.env.THECAMP_PW!,
     });
   });
 });

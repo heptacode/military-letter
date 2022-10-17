@@ -15,8 +15,8 @@ export async function requestAddTrainee(trainee: Trainee): Promise<TheCampRespon
       trainUnitCd: trainee.unit
         ? TraineeUnit[trainee.unit as unknown as keyof typeof TraineeUnit]
         : TraineeUnit['육군훈련소'],
-      missTraineeClassCd: TraineeClass['예비군인/훈련병'],
-      missTraineeClassCdNm: '예비군인/훈련병',
+      missSoldierClassCd: TraineeClass['예비군인/훈련병'],
+      missSoldierClassCdNm: '예비군인/훈련병',
       grpCd: TraineeGroup['육군'],
       grpCdNm: '육군',
     }),

@@ -3,9 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "send-news": "node ../.scripts/sendNews.mjs"
+    "send-news": "../.scripts/sendNews.sh"
   },
   "dependencies": {
-    "@heptacode/military-letter": "workspace:^"
+    "@heptacode/military-letter": "workspace:^",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.0"
   }
 }

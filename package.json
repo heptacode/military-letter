@@ -1,6 +1,6 @@
 {
   "name": "@heptacode/military-letter",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "description": "Unofficial library to send letters to ROK Armed Forces Training Center",
   "keywords": [
     "airforce",
@@ -54,7 +54,7 @@
     "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.38.0",
-    "esbuild": "^0.15.9",
+    "esbuild": "^0.15.11",
     "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.1",

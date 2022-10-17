@@ -1,0 +1,28 @@
+name: send-news
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # At KST 12:00 (UTC 03:00) everyday
+  workflow_dispatch:
+
+jobs:
+  send-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Packages
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+      - name: Execute Send News
+        working-directory: examples
+        run: ../.scripts/sendNews.sh
+        env:
+          THECAMP_ID: ${{ secrets.THECAMP_ID }}
+          THECAMP_PW: ${{ secrets.THECAMP_PW }}

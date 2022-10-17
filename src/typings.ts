@@ -51,8 +51,8 @@ export enum TraineeRelationship {
 
 export interface Trainee {
   name: string;
-  type?: TraineeType;
-  unit?: TraineeUnit;
+  type?: TraineeType | string;
+  unit?: TraineeUnit | string;
   birthDate: string;
   enterDate: string;
   startDate: string;
@@ -93,6 +93,11 @@ export interface APIPath {
     login: string;
     writeLetter: string;
   };
+}
+
+export interface TheCampLoginParams {
+  id: string;
+  password: string;
 }
 
 export interface Cookie {

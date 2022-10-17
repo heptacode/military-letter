@@ -1,14 +1,16 @@
 import { postRequest } from '@heptacode/http-request';
 import { stringify } from 'qs';
 import { config, paths } from '../config.js';
+import { TheCampLoginParams } from '../typings.js';
 import { extractCookies } from '../utils/extractCookies.js';
 
 /**
  * 더캠프 로그인
+ * @params {TheCampLoginParams} TheCampLoginParams
  * @returns {void} void
  */
-export async function login(): Promise<void> {
-  if (!process.env.THECAMP_ID || !process.env.THECAMP_PW) {
+export async function login({ id, password }: TheCampLoginParams): Promise<void> {
+  if (!id || !password) {
     throw new Error('Invalid Credentials');
   }
 
@@ -18,13 +20,13 @@ export async function login(): Promise<void> {
       state: 'email-login',
       autoLoginYn: 'N',
       findPwType: 'pwFind',
-      userId: process.env.THECAMP_ID,
-      userPwd: process.env.THECAMP_PW,
+      userId: id,
+      userPwd: password,
     })
   );
 
   if (data.resultCd !== '0000') {
-    throw new Error('Invalid Credentials');
+    throw new Error('Login Failed');
   }
 
   const { iuid, token } = extractCookies(headers['set-cookie']!);

@@ -20,9 +20,11 @@ jobs:
           key: lint-${{ hashFiles('**/.eslintcache') }}
           restore-keys: lint-
 
-      - run: yarn
+      - name: Install Packages
+        run: yarn
 
-      - run: yarn test
+      - name: Run Test
+        run: yarn test
         env:
           THECAMP_ID: ${{ secrets.THECAMP_ID }}
           THECAMP_PW: ${{ secrets.THECAMP_PW }}
