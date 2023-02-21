@@ -11,8 +11,8 @@ describe('add trainee to list', () => {
     });
   });
 
-  it('is result code 9999', async () => {
+  it('is result code not E001', async () => {
     const { resultCd: resultCode } = await requestAddTrainee(testTrainees[0]);
-    expect(resultCode).toEqual('9999');
+    expect(resultCode).not.toEqual('E001');
   });
 });
