@@ -15,6 +15,7 @@ export async function getNews(): Promise<NewsPayload[]> {
       news: (
         await getRequest('https://news.daum.net/api/harmonydic/contents/news.json', {
           category,
+          page: 1,
           pageSize: config.pageSize,
         })
       ).data.list,
